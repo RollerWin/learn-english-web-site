@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    var courses = (List<Course>)ViewData["courses"];
+}
+
+<section class="hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Изучите английский язык быстро и эффективно</h1>
+                <p>Мы предлагаем широкий спектр курсов английского языка для всех уровней, от начинающих до продвинутых.</p>
+                <a asp-area="" asp-controller="Courses" asp-action="ShowCourses" class="btn btn-primary">Узнать больше</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <h2>Преимущества изучения английского языка с нами</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature">
+                    <img src="~/images/timetable.png">
+                    <h3>Гибкий график обучения</h3>
+                    <p>Учите английский в своё удобное время и темп. Выбирайте курсы по своему усмотрению или следуйте готовым программам.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature">
+                    <img src="~/images/book-stack.png">
+                    <h3>Современные учебные материалы</h3>
+                    <p>Мы используем самые современные учебные материалы, чтобы сделать ваш процесс обучения максимально эффективным.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature">
+                    <img src="~/images/lightning.png">
+                    <h3>Новый контент ежедневно</h3>
+                    <p>Новые курсы, статьи и тесты каждый день. Будьте в курсе последних тенденций и расширяйте свои знания с самыми свежими материалами.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr>
+
+<section class="start-courses">
+    <div class="container">
+        <h2>С чего начать?</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            @for(int i = 0; i < 3; i++)
+            {
+                <div class="col">
+                    <div class="card">
+                        <img src="~/images/@Html.DisplayFor(modelItem => courses[i].ImgPath)" class="card-img-top" alt="English for Beginners">
+                        <div class="card-body">
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => courses[i].Title)</h5>
+                            <p class="card-text">@Html.DisplayFor(modelItem => courses[i].Title)</p>
+                            <a class="btn btn-primary" asp-controller="Articles" asp-action="ShowArticles" asp-route-id="@courses[i].Id">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+
+<hr>
+
+<section class="contacts">
+    <div class="container">
+        <h2>Контакты</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <p>
+                    Есть идеи и предложения? Напишите нам:
+                    <a href="tg://send?phone=your_telegram_number" target="_blank">
+                        <i class="fab fa-telegram"></i> Telegram
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr>

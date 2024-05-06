@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Результаты тестов";
+    var results = (List<TestResult>)ViewData["results"];
+}
+
+<section class="user-profile">
+    <div class="container">
+        <div class="row">
+            <h2>Результаты тестов</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 sidebar">
+                <nav class="nav flex-column">
+                    <a class="nav-link" asp-controller="Users" asp-action="Index">Личная информация</a>
+                    <a class="nav-link active" asp-controller="Users" asp-action="GetResults">Пройденные тесты</a>
+                    <a class="nav-link" href="#">Статистика</a>
+                </nav>
+            </div>
+            <div class="col-md-9">
+                <div class="card-deck">
+                    @for (int i = 0; i < results.Count; i++)
+                    {
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">@results[i].Quiz.Title</h5>
+                                    <p class="card-text">Попытка: @results[i].Attempt</p>
+                                    <p class="card-text">Оценка за тест: @results[i].Score</p>
+                                    <a class="btn btn-primary" asp-controller="Articles" asp-action="ShowSelectedArticle" asp-route-id="@results[i].Quiz.ArticleId">Ссылка на статью</a>
+                                    <a class="btn btn-primary" asp-controller="Users" asp-action="Details" asp-route-id="@results[i].Id">Подробнее</a>
+                                </div>
+                            </div>
+                     
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

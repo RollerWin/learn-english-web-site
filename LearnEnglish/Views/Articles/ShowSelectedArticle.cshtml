@@ -1,0 +1,42 @@
+﻿@model IEnumerable<LearnEnglish.Models.Article>
+
+@{
+    ViewData["Title"] = ViewData["ArticleTitle"];
+
+    var blocks = (List<Block>)ViewData["blocks"];
+    var filteredBlocks = blocks.Where(b => b.ArticleId == (int)ViewData["ArticleId"]).OrderBy(b => b.Order);
+}
+
+<section class="selected-article">
+    <div class="container">
+        <h2>@ViewData["ArticleTitle"]</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Home" asp-action="Index">Главная</a></li>
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Courses" asp-action="ShowCourses">Курсы</a></li>
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Articles" asp-action="ShowArticles" asp-route-id="@ViewData["CourseId"]">Статьи по курсу</a></li>
+            <li class="breadcrumb-item active">@ViewData["ArticleTitle"]</li>
+        </ol>
+
+        @foreach(var block in filteredBlocks)
+        {
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="card">
+                        @if (block.Type == BlockType.Image)
+                        {
+                            <img src="~/images/@Html.DisplayFor(modelItem => block.Content)" class="card-img-top"  />
+                        }
+                        else if(block.Type == BlockType.Text)
+                        {
+                            <p>@block.Content</p>
+                        }
+                        else
+                        {
+                            <iframe src="https://www.youtube.com/embed/@block.Content" frameborder="0" allowfullscreen></iframe>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>

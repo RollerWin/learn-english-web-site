@@ -1,0 +1,46 @@
+﻿@model LearnEnglish.Models.Article
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<section class="edit-element">
+    <div class="container">
+        <h2>Вы уверены, чтобы хотите удалить элемент?</h2>
+
+        <div>
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Course)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Course.Description)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Author)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Author.UserName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Title)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Title)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.CreatedDate)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.CreatedDate)
+                </dd>
+            
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="Delete" class="btn-danger" /> |
+                    <a class="back-to-list" asp-action="Index">Вернуться к списку</a>
+                </form>
+            </dl>
+        </div>
+    </div>
+</section>

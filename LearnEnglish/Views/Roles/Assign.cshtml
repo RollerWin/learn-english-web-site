@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Assign Role";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="edit-element">
+    <div class="container">
+        <h2>Назначение роли</h2>
+    
+        <form asp-action="Assign" method="post">
+            <div class="form-group">
+                <label for="userId">User:</label>
+                <select id="userId" name="userId" class="form-control">
+                    @foreach (var user in (SelectList)ViewData["Users"])
+                    {
+                        <option value="@user.Value">@user.Text</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="roleName">Role:</label>
+                <select id="roleName" name="roleName" class="form-control">
+                    @foreach (var role in (SelectList)ViewData["Roles"])
+                    {
+                        <option value="@role.Value">@role.Text</option>
+                    }
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Assign Role</button>
+        </form>
+    </div>
+</section>

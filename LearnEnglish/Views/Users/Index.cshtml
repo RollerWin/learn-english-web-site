@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+
+
+@{
+    ViewData["Title"] = "Личный кабинет";
+}
+
+<section class="user-profile">
+    <div class="container">
+        <div class="row">
+            <h2>Личный кабинет</h2>
+            <h3>@UserManager.GetUserName(User)</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-3 sidebar">
+                <nav class="nav flex-column">
+                    <a class="nav-link active" asp-controller="Users" asp-action="Index">Личная информация</a>
+                    <a class="nav-link" asp-controller="Users" asp-action="GetResults">Пройденные тесты</a>
+                    <a class="nav-link" href="#">Статистика</a>
+                </nav>
+            </div>
+            <div class="col-md-9">
+                <div class="profile-content">
+                    <h3 class="personal-info-header">Личная информация</h3>
+                    
+                    <dl class="row">
+                        <dt class="col-sm-4">Имя пользователя: </dt>
+                        <dt class="col-sm-8">@ViewData["user"]</dt>
+                        <dt class="col-sm-4">Почта: </dt>
+                        <dt class="col-sm-8">@ViewData["email"]</dt>
+                        <dt class="col-sm-4">Роль: </dt>
+                        <dt class="col-sm-8">@ViewData["role"]</dt>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

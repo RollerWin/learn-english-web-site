@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Details";
+    var userAnswers = (List<UserAnswer>)ViewData["userAnswers"];
+    var correctAnswers = (List<Answer>)ViewData["correctAnswers"];
+    var quizLenght = correctAnswers.Count;
+}
+
+<section class="admin-table">
+    <div class="container">
+        <h2>Результаты теста</h2>
+        @for (int i = 0; i < userAnswers.Count;)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Вопрос</th>
+                        <th>Ответ пользователя</th>
+                        <th>Правильный ответ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int j = 0; j < quizLenght; j++)
+                    {
+                        <tr>
+                            <td>@correctAnswers[j].Question.Text</td>
+                            <td style="background-color: @(correctAnswers[j].IsCorrect && correctAnswers[j].Text == userAnswers[i].TextAnswer ? "rgba(0, 255, 0, 0.3)" : "rgba(255, 0, 0, 0.3)")">@userAnswers[i].TextAnswer</td>
+                            <td>@correctAnswers[j].Text</td>
+                        </tr>
+                        i++;
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</section>
+

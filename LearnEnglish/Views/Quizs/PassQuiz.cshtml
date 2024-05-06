@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Pass Quiz";
+    var quiz = (Quiz)ViewData["quiz"];
+    var questions = (List<Question>)ViewData["questions"];
+    var answers = (List<Answer>)ViewData["answers"];
+    var answersDict = new Dictionary<int, string>();
+}
+
+<section class="add-block-page">
+    <div class="container">
+        <h2>@quiz.Title</h2>
+        
+        <form asp-action="PassQuiz" method="post">
+            @foreach (var question in questions)
+            {
+                <div class="pass-quiz-block">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h5>Вопрос @question.Order</h5>
+                            <h3>@question.Text</h3>
+
+                            @if (question.Type == QuestionType.Written)
+                            {
+                                <p>Ваш ответ:</p>
+                            }
+                            else
+                            {
+                                <p>Выберите один вариант ответа:</p>
+                            }
+
+                            @foreach (var answer in answers.Where(a => a.QuestionId == question.Id))
+                            {
+                                <div>
+                                    @if (question.Type == QuestionType.Written)
+                                    {
+                                        <input type="text" class="input-written-answer" name="answers[@question.Id]" />
+                                    }
+                                    else
+                                    {
+                                        <input type="radio" name="answers[@question.Id]" value="@answer.Text" />
+                                        <label class="input-single-answer">@answer.Text</label>
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                answersDict.Add(question.Id, string.Empty);
+            }
+
+            <div class="end-test-btn">
+                <input type="submit" class="btn" value="Закончить тест" />
+            </div>
+        </form>
+    </div>
+</section>
+
+
+

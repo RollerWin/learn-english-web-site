@@ -1,0 +1,55 @@
+﻿@model IEnumerable<LearnEnglish.Models.Course>
+
+@{
+    ViewData["Title"] = "Управление курсами";
+}
+
+<section class="admin-table">
+    <div class="container">
+        <h2>Управление курсами</h2>
+
+        <a class="add-button-span-text" asp-controller="Courses" asp-action="Create">
+            <span class="d-flex align-items-center add-button-span">
+                <i class="fas fa-plus-circle add-article-button mr-2"></i>
+                <span>Добавить курс</span>
+            </span>
+        </a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ImgPath)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="admin-table-title">
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td class="admin-table-description">
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td class="admin-table-image">
+                            <img src="~/images/@Html.DisplayFor(modelItem => item.ImgPath)" />
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Изменить</a>
+                            <a class="btn btn-primary" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</section>

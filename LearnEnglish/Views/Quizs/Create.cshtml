@@ -1,0 +1,43 @@
+﻿@model LearnEnglish.Models.Quiz
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<section class="create-element">
+    <div class="container">
+        <h2>Создание теста</h2>
+    
+        <div class="row">
+            <div class="col-md-6">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label for="ArticleId">Название статьи</label>
+                        <select id="ArticleId" name="ArticleId" class="form-control">
+                            @foreach (var course in (SelectList)ViewData["Articles"])
+                            {
+                                <option value="@course.Value">@course.Text</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Title" class="control-label"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Создать" class="btn btn-primary" />
+                    </div>
+                </form>
+                <a asp-action="Index" class="back-to-list">Вернуться к списку</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

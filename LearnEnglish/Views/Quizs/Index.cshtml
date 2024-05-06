@@ -1,0 +1,74 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@model IEnumerable<LearnEnglish.Models.Quiz>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<section class="articles">
+    <div class="container">
+        <h2>Тесты</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Home" asp-action="Index">Главная</a></li>
+            <li class="breadcrumb-item active">Курсы</li>
+        </ol>
+
+        @if (SignInManager.Context.User.IsInRole("admin"))
+        {
+            <a class="add-button-span-text" asp-controller="Quizs" asp-action="Create">
+                <span class="d-flex align-items-center add-button-span">
+                    <i class="fas fa-plus-circle add-article-button mr-2"></i>
+                    <span>Добавить тест</span>
+                </span>
+            </a>
+        }
+
+        @foreach(var test in Model)
+        {
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row row-cols-1 g-4">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">@Html.DisplayFor(modelItem => test.Title)</h5>
+                                    <p class="card-text">Тест по теме: @Html.DisplayFor(modelItem => test.Article.Title)</p>
+                                    <a asp-action="PassQuiz" asp-route-id="@test.Id" class="btn">Пройти тест</a>
+
+                                    @if (SignInManager.Context.User.IsInRole("admin"))
+                                    {
+                                        <div class="add-buttons">
+                                            <a class="add-button-span-text" asp-controller="Quizs" asp-action="Edit" asp-route-id="@test.Id">
+                                                <span class="d-flex align-items-center add-button-span">
+                                                    <i class="fas fa-edit add-article-button mr-2"></i>
+                                                    <span>Изменить название</span>
+                                                </span>
+                                            </a>
+
+                                            <a class="add-button-span-text" asp-controller="Quizs" asp-action="EditQuiz" asp-route-id="@test.Id">
+                                                <span class="d-flex align-items-center add-button-span">
+                                                    <i class="fas fa-edit add-article-button mr-2"></i>
+                                                    <span>Изменить тест</span>
+                                                </span>
+                                            </a>
+
+                                            <a class="add-button-span-text" asp-controller="Quizs" asp-action="Delete" asp-route-id="@test.Id">
+                                                <span class="d-flex align-items-center add-button-span">
+                                                    <i class="fas fa-trash-alt add-article-button mr-2"></i>
+                                                    <span>Удалить тест</span>
+                                                </span>
+                                            </a>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>

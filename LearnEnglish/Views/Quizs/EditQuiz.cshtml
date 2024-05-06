@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Редактирование теста";
+    var quiz = (Quiz)ViewData["quiz"];
+
+    var questions = (List<Question>)ViewData["questions"];
+    var answers = (List<Answer>)ViewData["answers"];
+
+    var filteredQuestions = questions.Where(q => q.QuizId == quiz.Id).OrderBy(q => q.Order);
+}
+
+<section class="add-block-page ">
+    <div class="container">
+        <h2>Редактирование теста @ViewData["QuizTitle"]</h2>
+
+        <a class="add-button-span-text" asp-controller="Questions" asp-action="Create" asp-route-id="@quiz.Id">
+            <span class="d-flex align-items-center add-button-span">
+                <i class="fas fa-plus-circle add-article-button mr-2"></i>
+                <span>Добавить новый вопрос</span>
+            </span>
+        </a>
+        
+        <ul class="list-unstyled">
+            @foreach (var question in filteredQuestions)
+            {
+                <div class="edit-quiz-block">
+                    <div class="row">
+                        <div class="col-md-6">
+                        <li class="align-items-center">
+                            <h2>@question.Text</h2>
+                            <ol start="1" type="1">
+                                    @foreach (var answer in answers.Where(a => a.QuestionId == question.Id))
+                                    {
+                                    <li>@answer.Text</li>
+                                    }
+                            </ol>
+                        </li>
+
+                        <a class="add-button-span-text" asp-controller="Questions" asp-action="Delete" asp-route-id="@question.Id">
+                            <span class="d-flex align-items-center add-button-span">
+                                <i class="fas fa-trash-alt add-article-button mr-2"></i>
+                                <span>Удалить блок</span>
+                            </span>
+                        </a>
+
+                        <a class="add-button-span-text" asp-controller="Questions" asp-action="Edit" asp-route-id="@question.Id">
+                            <span class="d-flex align-items-center add-button-span">
+                                <i class="fas fa-edit add-article-button mr-2"></i>
+                                <span>Изменить</span>
+                            </span>
+                        </a>
+
+                        <a class="add-button-span-text" asp-controller="Questions" asp-action="RaiseBlockUp" asp-route-id="@question.Id">
+                            <span class="d-flex align-items-center add-button-span">
+                                <i class="fas fa-arrow-up add-article-button mr-2"></i>
+                                <span>Переместить вверх</span>
+                            </span>
+                        </a>
+
+                        <a class="add-button-span-text" asp-controller="Questions" asp-action="LowerBlockDown" asp-route-id="@question.Id">
+                            <span class="d-flex align-items-center add-button-span">
+                                <i class="fas fa-arrow-down add-article-button mr-2"></i>
+                                <span>Переместить вниз</span>
+                            </span>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </ul>
+        
+        
+    </div>
+</section>
+
+
+<a asp-controller="Questions" asp-action="Create" asp-route-id="@quiz.Id">Добавить новый вопрос</a>

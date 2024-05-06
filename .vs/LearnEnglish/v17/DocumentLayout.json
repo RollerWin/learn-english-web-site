@@ -1,0 +1,266 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|d:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\learnenglish\\learnenglish\\views\\roles\\assign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|solutionrelative:learnenglish\\views\\roles\\assign.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|d:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\learnenglish\\learnenglish\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|solutionrelative:learnenglish\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|d:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\learnenglish\\learnenglish\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|solutionrelative:learnenglish\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|d:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\learnenglish\\learnenglish\\views\\courses\\showcourses.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|solutionrelative:learnenglish\\views\\courses\\showcourses.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|d:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\learnenglish\\learnenglish\\views\\questions\\addanswers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|solutionrelative:learnenglish\\views\\questions\\addanswers.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|d:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\learnenglish\\learnenglish\\views\\quizs\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|solutionrelative:learnenglish\\views\\quizs\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|d:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\learnenglish\\learnenglish\\controllers\\quizscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|solutionrelative:learnenglish\\controllers\\quizscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|d:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\learnenglish\\learnenglish\\models\\testresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|solutionrelative:learnenglish\\models\\testresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|d:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\learnenglish\\learnenglish\\controllers\\questionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|solutionrelative:learnenglish\\controllers\\questionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|d:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\learnenglish\\learnenglish\\views\\articles\\showselectedarticle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|solutionrelative:learnenglish\\views\\articles\\showselectedarticle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|d:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\learnenglish\\learnenglish\\wwwroot\\css\\courses.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|solutionrelative:learnenglish\\wwwroot\\css\\courses.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|d:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\learnenglish\\learnenglish\\views\\articles\\addblock.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|solutionrelative:learnenglish\\views\\articles\\addblock.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|d:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\learnenglish\\learnenglish\\views\\blocks\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|solutionrelative:learnenglish\\views\\blocks\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|d:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\learnenglish\\learnenglish\\models\\block.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{62D3AB12-0C79-4FF6-85BE-8BD1C01E5820}|LearnEnglish\\LearnEnglish.csproj|solutionrelative:learnenglish\\models\\block.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 182,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RolesController.cs",
+              "DocumentMoniker": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Controllers\\RolesController.cs",
+              "RelativeDocumentMoniker": "LearnEnglish\\Controllers\\RolesController.cs",
+              "ToolTip": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Controllers\\RolesController.cs",
+              "RelativeToolTip": "LearnEnglish\\Controllers\\RolesController.cs",
+              "ViewState": "AQIAAD4AAAAAAAAAAADwv04AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T03:10:27.852Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Assign.cshtml",
+              "DocumentMoniker": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Views\\Roles\\Assign.cshtml",
+              "RelativeDocumentMoniker": "LearnEnglish\\Views\\Roles\\Assign.cshtml",
+              "ToolTip": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Views\\Roles\\Assign.cshtml",
+              "RelativeToolTip": "LearnEnglish\\Views\\Roles\\Assign.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-06T03:10:21.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CoursesController.cs",
+              "DocumentMoniker": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Controllers\\CoursesController.cs",
+              "RelativeDocumentMoniker": "LearnEnglish\\Controllers\\CoursesController.cs",
+              "ToolTip": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Controllers\\CoursesController.cs",
+              "RelativeToolTip": "LearnEnglish\\Controllers\\CoursesController.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA8AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T03:05:49.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Views\\Quizs\\Create.cshtml",
+              "RelativeDocumentMoniker": "LearnEnglish\\Views\\Quizs\\Create.cshtml",
+              "ToolTip": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Views\\Quizs\\Create.cshtml",
+              "RelativeToolTip": "LearnEnglish\\Views\\Quizs\\Create.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-06T03:00:56.08Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AddAnswers.cshtml",
+              "DocumentMoniker": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Views\\Questions\\AddAnswers.cshtml",
+              "RelativeDocumentMoniker": "LearnEnglish\\Views\\Questions\\AddAnswers.cshtml",
+              "ToolTip": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Views\\Questions\\AddAnswers.cshtml",
+              "RelativeToolTip": "LearnEnglish\\Views\\Questions\\AddAnswers.cshtml",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAADEAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-06T02:59:32.385Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ShowCourses.cshtml",
+              "DocumentMoniker": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Views\\Courses\\ShowCourses.cshtml",
+              "RelativeDocumentMoniker": "LearnEnglish\\Views\\Courses\\ShowCourses.cshtml",
+              "ToolTip": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Views\\Courses\\ShowCourses.cshtml",
+              "RelativeToolTip": "LearnEnglish\\Views\\Courses\\ShowCourses.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAABUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-06T02:56:49.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TestResult.cs",
+              "DocumentMoniker": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Models\\TestResult.cs",
+              "RelativeDocumentMoniker": "LearnEnglish\\Models\\TestResult.cs",
+              "ToolTip": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Models\\TestResult.cs",
+              "RelativeToolTip": "LearnEnglish\\Models\\TestResult.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T02:47:51.451Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "QuizsController.cs",
+              "DocumentMoniker": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Controllers\\QuizsController.cs",
+              "RelativeDocumentMoniker": "LearnEnglish\\Controllers\\QuizsController.cs",
+              "ToolTip": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Controllers\\QuizsController.cs",
+              "RelativeToolTip": "LearnEnglish\\Controllers\\QuizsController.cs",
+              "ViewState": "AQIAAFQAAAAAAAAAAAAvwGsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T02:29:59.978Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "QuestionsController.cs",
+              "DocumentMoniker": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Controllers\\QuestionsController.cs",
+              "RelativeDocumentMoniker": "LearnEnglish\\Controllers\\QuestionsController.cs",
+              "ToolTip": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Controllers\\QuestionsController.cs",
+              "RelativeToolTip": "LearnEnglish\\Controllers\\QuestionsController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T02:29:57.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "courses.css",
+              "DocumentMoniker": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\wwwroot\\css\\courses.css",
+              "RelativeDocumentMoniker": "LearnEnglish\\wwwroot\\css\\courses.css",
+              "ToolTip": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\wwwroot\\css\\courses.css",
+              "RelativeToolTip": "LearnEnglish\\wwwroot\\css\\courses.css",
+              "ViewState": "AQIAALYAAAAAAAAAAAAQwMUAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-05-06T02:12:26.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ShowSelectedArticle.cshtml",
+              "DocumentMoniker": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Views\\Articles\\ShowSelectedArticle.cshtml",
+              "RelativeDocumentMoniker": "LearnEnglish\\Views\\Articles\\ShowSelectedArticle.cshtml",
+              "ToolTip": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Views\\Articles\\ShowSelectedArticle.cshtml",
+              "RelativeToolTip": "LearnEnglish\\Views\\Articles\\ShowSelectedArticle.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAChAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-06T02:11:00.87Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Views\\Blocks\\Create.cshtml",
+              "RelativeDocumentMoniker": "LearnEnglish\\Views\\Blocks\\Create.cshtml",
+              "ToolTip": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Views\\Blocks\\Create.cshtml",
+              "RelativeToolTip": "LearnEnglish\\Views\\Blocks\\Create.cshtml",
+              "ViewState": "AQIAABkAAAAAAAAAAAAYwDIAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-06T01:56:51.004Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AddBlock.cshtml",
+              "DocumentMoniker": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Views\\Articles\\AddBlock.cshtml",
+              "RelativeDocumentMoniker": "LearnEnglish\\Views\\Articles\\AddBlock.cshtml",
+              "ToolTip": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Views\\Articles\\AddBlock.cshtml",
+              "RelativeToolTip": "LearnEnglish\\Views\\Articles\\AddBlock.cshtml",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAgwCMAAACVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-06T01:54:21.074Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Block.cs",
+              "DocumentMoniker": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Models\\Block.cs",
+              "RelativeDocumentMoniker": "LearnEnglish\\Models\\Block.cs",
+              "ToolTip": "D:\\\u0440\u0430\u0431\u043E\u0442\u0430\\\u0438\u0437\u0443\u0447\u0435\u043D\u0438\u0435 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E\\LearnEnglish\\LearnEnglish\\Models\\Block.cs",
+              "RelativeToolTip": "LearnEnglish\\Models\\Block.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-06T01:54:05.02Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

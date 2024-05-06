@@ -1,0 +1,66 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@model IEnumerable<LearnEnglish.Models.Article>
+
+@{
+    ViewData["Title"] = "Статьи";
+}
+
+<section class="articles">
+    <div class="container">
+        <h2>Темы по курсу: @ViewData["CourseTitle"]</h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Home" asp-action="Index">Главная</a></li>
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Courses" asp-action="ShowCourses">Курсы</a></li>
+            <li class="breadcrumb-item active">Набор статей</li>
+        </ol>
+
+        @foreach(var article in Model)
+        {
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row row-cols-1 g-4">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">@Html.DisplayFor(modelItem => article.Title)</h5>
+                                    <p class="card-text">Автор статьи: @Html.DisplayFor(modelItem => article.Author.UserName)</p>
+                                    <p class="card-text">Опубликовано: @article.CreatedDate.ToString("dd.MM.yyyy")</p>
+                                    <a asp-controller="Articles" asp-action="ShowSelectedArticle" asp-route-id="@article.Id" class="btn btn-primary">Читать</a>
+
+                                    @if (SignInManager.Context.User.IsInRole("admin") || SignInManager.Context.User.IsInRole("teacher"))
+                                    {
+                                        <div class="add-buttons">
+                                            <a class="add-button-span-text" asp-controller="Articles" asp-action="AddBlock" asp-route-id="@article.Id">
+                                                <span class="d-flex align-items-center add-button-span">
+                                                    <i class="fas fa-plus-circle add-article-button mr-2"></i>
+                                                    <span>Добавить блок</span>
+                                                </span>
+                                            </a>
+
+                                            <a class="add-button-span-text" asp-controller="Articles" asp-action="Edit" asp-route-id="@article.Id">
+                                                <span class="d-flex align-items-center add-button-span">
+                                                    <i class="fas fa-edit add-article-button mr-2"></i>
+                                                    <span>Редактировать название</span>
+                                                </span>
+                                            </a>
+
+                                            <a class="add-button-span-text" asp-controller="Articles" asp-action="Delete" asp-route-id="@article.Id">
+                                                <span class="d-flex align-items-center add-button-span">
+                                                    <i class="fas fa-trash-alt add-article-button mr-2"></i>
+                                                    <span>Удалить статью</span>
+                                                </span>
+                                            </a>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>

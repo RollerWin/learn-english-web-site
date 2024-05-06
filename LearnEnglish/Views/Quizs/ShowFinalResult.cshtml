@@ -1,0 +1,16 @@
+﻿@model LearnEnglish.Models.TestResult
+
+@{
+    ViewData["Title"] = "Результат!";
+}
+
+<section class="final-result">
+    <div class="container">
+        <h2>Поздравляем! Вы прошли тест!</h2>
+        <p>Ваш результат: @Model.Score</p>
+        <div class="d-flex">
+            <a class="btn btn-primary" asp-controller="Home" asp-action="Index">На главную</a>
+            <a class="btn btn-primary" asp-controller="Users" asp-action="GetResults">Посмотреть подробную информацию</a>
+        </div>
+    </div>
+</section>

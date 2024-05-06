@@ -1,0 +1,64 @@
+﻿@model IEnumerable<LearnEnglish.Models.Article>
+
+@{
+    ViewData["Title"] = "Управление статьями";
+}
+
+<section class="admin-table">
+    <div class="container">
+        <h2>Управление статьями</h2>
+
+        <a class="add-button-span-text" asp-controller="Articles" asp-action="Create">
+            <span class="d-flex align-items-center add-button-span">
+                <i class="fas fa-plus-circle add-article-button mr-2"></i>
+                <span>Добавить статью</span>
+            </span>
+        </a>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Course.Title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Author)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Title)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CreatedDate)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="admin-table-title">
+                            @Html.DisplayFor(modelItem => item.Course.Title)
+                        </td>
+                        <td class="admin-table-description">
+                            @Html.DisplayFor(modelItem => item.Author.Id)
+                        </td class="admin-table-description">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td class="admin-table-description">
+                            @Html.DisplayFor(modelItem => item.CreatedDate)
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Изменить</a>
+                            <a class="btn btn-primary" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                            <a class="btn btn-primary" asp-action="AddBlock" asp-route-id="@item.Id">Редактировать блоки</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</section>
+

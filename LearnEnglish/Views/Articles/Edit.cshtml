@@ -1,0 +1,47 @@
+﻿@model LearnEnglish.Models.Article
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<section class="edit-element">
+    <div class="container">
+        <h2>Редактирование статьи</h2>
+
+        <div class="row">
+            <div class="col-md-6">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="CourseId" class="control-label"></label>
+                        <select asp-for="CourseId" class="form-control" asp-items="ViewBag.CourseId"></select>
+                        <span asp-validation-for="CourseId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AuthorId" class="control-label"></label>
+                        <select asp-for="AuthorId" class="form-control" asp-items="ViewBag.AuthorId"></select>
+                        <span asp-validation-for="AuthorId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Title" class="control-label"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CreatedDate" class="control-label"></label>
+                        <input asp-for="CreatedDate" class="form-control" />
+                        <span asp-validation-for="CreatedDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Прмиенить изменения" class="btn" />
+                        <a class="back-to-list" asp-action="Index">Вернуться к списку</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
