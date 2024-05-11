@@ -10,7 +10,13 @@
 
 <section class="add-block-page ">
     <div class="container">
-        <h2>Редактирование теста @ViewData["QuizTitle"]</h2>
+        <h2>Редактирование теста "@ViewData["QuizTitle"]"</h2>
+
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Home" asp-action="Index">Главная</a></li>
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Quizs" asp-action="Index">Тесты</a></li>
+            <li class="breadcrumb-item active">Редактирование теста</li>
+        </ol>
 
         <a class="add-button-span-text" asp-controller="Questions" asp-action="Create" asp-route-id="@quiz.Id">
             <span class="d-flex align-items-center add-button-span">
@@ -42,10 +48,17 @@
                             </span>
                         </a>
 
-                        <a class="add-button-span-text" asp-controller="Questions" asp-action="Edit" asp-route-id="@question.Id">
+                        <a class="add-button-span-text" asp-controller="Questions" asp-action="EditTitle" asp-route-id="@question.Id">
                             <span class="d-flex align-items-center add-button-span">
                                 <i class="fas fa-edit add-article-button mr-2"></i>
-                                <span>Изменить</span>
+                                <span>Изменить вопрос</span>
+                            </span>
+                        </a>
+                        
+                        <a class="add-button-span-text" asp-controller="Questions" asp-action="EditAnswer" asp-route-id="@question.Id">
+                            <span class="d-flex align-items-center add-button-span">
+                                <i class="fas fa-edit add-article-button mr-2"></i>
+                                <span>Изменить ответы</span>
                             </span>
                         </a>
 

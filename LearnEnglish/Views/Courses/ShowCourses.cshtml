@@ -12,12 +12,15 @@
     <div class="container">
         <h2>Изучайте курсы</h2>
 
-        <a class="add-button-span-text" asp-controller="Courses" asp-action="Create">
-            <span class="d-flex align-items-center add-button-span">
-                <i class="fas fa-plus-circle add-article-button mr-2"></i>
-                <span>Создать статью</span>
-            </span>
-        </a>
+        @if (SignInManager.Context.User.IsInRole("admin") || SignInManager.Context.User.IsInRole("teacher"))
+        {
+            <a class="add-button-span-text" asp-controller="Courses" asp-action="Create">
+                <span class="d-flex align-items-center add-button-span">
+                    <i class="fas fa-plus-circle add-article-button mr-2"></i>
+                    <span>Создать курс</span>
+                </span>
+            </a>
+        }
 
         <div class="row row-cols-1 row-cols-md-3 g-4">
 

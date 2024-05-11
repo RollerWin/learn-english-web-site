@@ -8,15 +8,18 @@ using Microsoft.EntityFrameworkCore;
 using LearnEnglish.Data;
 using LearnEnglish.Models;
 using static System.Reflection.Metadata.BlobBuilder;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LearnEnglish.Controllers
 {
+    [Authorize(Roles = "admin, teacher")]
     public class BlocksController : Controller
     {
         private readonly EnglishDbContext _context;
 
         public BlocksController(EnglishDbContext context) => _context = context;
 
+       
         public async Task<IActionResult> Create(int id)
         {
             ViewData["ArticleId"] = id;
@@ -50,6 +53,10 @@ namespace LearnEnglish.Controllers
 
                 _context.Add(block);
                 await _context.SaveChangesAsync();
+            }
+            else
+            {
+                return NotFound();
             }
 
             return RedirectToAction("AddBlock", "Articles", new {id = articleId});
@@ -125,7 +132,6 @@ namespace LearnEnglish.Controllers
             return RedirectToAction("AddBlock", "Articles", new { id = movableBlock.ArticleId });
         }
 
-       
         public async Task<IActionResult> Delete(int id)
         {
             List<Block> blocks = await _context.Blocks.ToListAsync();

@@ -23,7 +23,7 @@
                     {
                         <tr>
                             <td>@correctAnswers[j].Question.Text</td>
-                            <td style="background-color: @(correctAnswers[j].IsCorrect && correctAnswers[j].Text == userAnswers[i].TextAnswer ? "rgba(0, 255, 0, 0.3)" : "rgba(255, 0, 0, 0.3)")">@userAnswers[i].TextAnswer</td>
+                            <td style="background-color: @(correctAnswers[j].IsCorrect && correctAnswers[j].Text.ToLower() == userAnswers[i].TextAnswer.ToLower() ? "rgba(0, 255, 0, 0.3)" : "rgba(255, 0, 0, 0.3)")">@userAnswers[i].TextAnswer</td>
                             <td>@correctAnswers[j].Text</td>
                         </tr>
                         i++;

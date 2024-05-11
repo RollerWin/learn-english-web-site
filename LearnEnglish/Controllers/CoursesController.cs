@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace LearnEnglish.Controllers
 {
+    [Authorize]
     public class CoursesController : Controller
     {
         private readonly EnglishDbContext _context;
@@ -35,10 +36,11 @@ namespace LearnEnglish.Controllers
             return View(await englishDbContext.ToListAsync());
         }
 
+        [Authorize(Roles = "admin, teacher")]
         public async Task<IActionResult> Create() => View();
 
         [HttpPost]
-        [Authorize(Roles ="admin")]
+        [Authorize(Roles = "admin, teacher")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([FromForm] string title, [FromForm] string description, [FromForm] string imgPath)
         {
@@ -61,6 +63,7 @@ namespace LearnEnglish.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize(Roles = "admin, teacher")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,43 +76,36 @@ namespace LearnEnglish.Controllers
             {
                 return NotFound();
             }
-            ViewData["UserId"] = new SelectList(_context.Set<IdentityUser>(), "Id", "Id", course.UserId);
+
+            var users = await _userManager.Users.ToListAsync();
+            var usersSelectList = new SelectList(users, "Id", "UserName");
+
+            ViewData["CourseId"] = course.Id;
+            ViewData["Users"] = usersSelectList;
             return View(course);
         }
 
         [HttpPost]
+        [Authorize(Roles = "admin, teacher")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,UserId,ImgPath")] Course course)
+        public async Task<IActionResult> Edit([FromForm] int Id, [FromForm] string title, [FromForm] string description, [FromForm] string userId, [FromForm] string imgPath)
         {
-            if (id != course.Id)
+            if(Id != null && title != null && description != null && userId != null && imgPath != null)
             {
-                return NotFound();
+                var updateCourse = await _context.Courses.FindAsync(Id);
+                updateCourse.Title = title;
+                updateCourse.Description = description;
+                updateCourse.UserId = userId;
+                updateCourse.ImgPath = imgPath;
+                _context.Update(updateCourse);
             }
+           
+            await _context.SaveChangesAsync();
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(course);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CourseExists(course.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["UserId"] = new SelectList(_context.Set<IdentityUser>(), "Id", "Id", course.UserId);
-            return View(course);
+            return RedirectToAction(nameof(Index));
         }
 
+        [Authorize(Roles = "admin, teacher")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -129,6 +125,7 @@ namespace LearnEnglish.Controllers
         }
 
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "admin, teacher")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {

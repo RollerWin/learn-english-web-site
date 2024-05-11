@@ -8,6 +8,13 @@
     <div class="container">
         <h2>Вы уверены, чтобы хотите удалить элемент?</h2>
 
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Home" asp-action="Index">Главная</a></li>
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Courses" asp-action="ShowCourses">Курсы</a></li>
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Articles" asp-action="ShowArticles" asp-route-id="@ViewData["CourseId"]">Статьи по курсу</a></li>
+            <li class="breadcrumb-item active">Удаление статьи</li>
+        </ol>
+
         <div>
             <dl class="row">
                 <dt class="col-sm-2">

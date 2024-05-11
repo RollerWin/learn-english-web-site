@@ -7,15 +7,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LearnEnglish.Data;
 using LearnEnglish.Models;
+using NuGet.Versioning;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LearnEnglish.Controllers
 {
+    [Authorize]
     public class QuestionsController : Controller
     {
         private readonly EnglishDbContext _context;
 
         public QuestionsController(EnglishDbContext context) => _context = context;
 
+        [Authorize(Roles = "admin, teacher")]
         public async Task<IActionResult> Create(int id)
         {
 
@@ -38,6 +42,7 @@ namespace LearnEnglish.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "admin, teacher")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([FromForm] int quizId, [FromForm] string text, [FromForm] QuestionType type, [FromForm] int order)
         {
@@ -61,6 +66,7 @@ namespace LearnEnglish.Controllers
             return NotFound();
         }
 
+        [Authorize(Roles = "admin, teacher")]
         public async Task<IActionResult> AddAnswers(int id)
         {
             var question = await _context.Questions
@@ -78,6 +84,7 @@ namespace LearnEnglish.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "admin, teacher")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddAnswers(List<Answer> answers)
         {
@@ -95,7 +102,8 @@ namespace LearnEnglish.Controllers
 
         }
 
-        public async Task<IActionResult> Edit(int? id)
+        [Authorize(Roles = "admin, teacher")]
+        public async Task<IActionResult> EditTitle(int? id)
         {
             if (id == null)
                 return NotFound();
@@ -106,43 +114,63 @@ namespace LearnEnglish.Controllers
                 return NotFound();
 
             ViewData["QuizId"] = new SelectList(_context.Quizzes, "Id", "Id", question.QuizId);
-            //ViewData["QuizId"] = question.QuizId;
             return View(question);
         }
 
         [HttpPost]
+        [Authorize(Roles = "admin, teacher")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,QuizId,Text,Type,Order")] Question question)
+        public async Task<IActionResult> EditTitle([FromForm] int Id, [FromForm] string text)
         {
-            if (id != question.Id)
-            {
-                return NotFound();
-            }
+            var updateQuestionTitle = await _context.Questions.FindAsync(Id);
+            updateQuestionTitle.Text = text;
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(question);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!QuestionExists(question.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["QuizId"] = new SelectList(_context.Quizzes, "Id", "Id", question.QuizId);
-            return View(question);
+            _context.Update(updateQuestionTitle);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("EditQuiz", "Quizs", new { id = updateQuestionTitle.QuizId } );
         }
 
+        [Authorize(Roles = "admin, teacher")]
+        public async Task<IActionResult> EditAnswer(int? id)
+        {
+            if (id == null)
+                return NotFound();
+
+            var question = await _context.Questions.FindAsync(id);
+            var answers = await _context.Answers.Where(a => a.QuestionId == id).ToListAsync();
+
+           ViewData["QuizId"] = question.QuizId;
+            ViewData["Question"] = question;
+            return View(answers);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "admin, teacher")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditAnswer([FromForm] List<Answer> answers)
+        {
+            if(answers.Count == 0)
+            {
+                return RedirectToAction("Index");
+            }
+            var questionId = answers[0].QuestionId;
+            var question = await _context.Questions.FindAsync(questionId);
+            var quizId = question.QuizId;
+
+            foreach (var answer in answers)
+            {
+                var answerInDB = await _context.Answers.FindAsync(answer.Id);
+                answerInDB.Text = answer.Text;
+                answerInDB.IsCorrect = answer.IsCorrect;
+
+                _context.Answers.Update(answerInDB);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction("EditQuiz", "Quizs", new { id = quizId });
+        }
+
+       [Authorize(Roles = "admin, teacher")]
         public async Task<IActionResult> RaiseBlockUp(int? id)
         {
             var movableQuestion = await _context.Questions.FindAsync(id);
@@ -150,6 +178,7 @@ namespace LearnEnglish.Controllers
             return RedirectToAction("EditQuiz", "Quizs", new { id = movableQuestion.QuizId });
         }
 
+        [Authorize(Roles = "admin, teacher")]
         public async Task<IActionResult> LowerBlockDown(int? id)
         {
             var movableQuestion = await _context.Questions.FindAsync(id);
@@ -157,6 +186,7 @@ namespace LearnEnglish.Controllers
             return RedirectToAction("EditQuiz", "Quizs", new { id = movableQuestion.QuizId });
         }
 
+        [Authorize(Roles = "admin, teacher")]
         public async Task<IActionResult> Delete(int? id)
         {
             List<Question> questions = await _context.Questions.ToListAsync();
@@ -182,6 +212,7 @@ namespace LearnEnglish.Controllers
             return _context.Questions.Any(e => e.Id == id);
         }
 
+        [Authorize(Roles = "admin, teacher")]
         private async Task MoveBlock(Question movableQuestion, int newOrderOffset)
         {
             if (movableQuestion == null)

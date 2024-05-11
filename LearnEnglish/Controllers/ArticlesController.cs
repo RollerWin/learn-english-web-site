@@ -9,9 +9,11 @@ using LearnEnglish.Data;
 using LearnEnglish.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Dynamic;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LearnEnglish.Controllers
 {
+    [Authorize]
     public class ArticlesController : Controller
     {
         private readonly EnglishDbContext _context;
@@ -46,6 +48,8 @@ namespace LearnEnglish.Controllers
 
             var selectedCourse = await _context.Courses.FirstOrDefaultAsync(ct => ct.Id == id);
             ViewData["CourseTitle"] = selectedCourse.Title;
+            ViewData["SelectedCourseId"] = selectedCourse.Id;
+
 
             return View(await englishDbContext.ToListAsync());
         }
@@ -76,6 +80,7 @@ namespace LearnEnglish.Controllers
             return View();
         }
 
+        [Authorize(Roles = "admin, teacher")]
         public async Task<IActionResult> Create(int? id)
         {
             var courses = await _context.Courses.ToListAsync();
@@ -92,6 +97,7 @@ namespace LearnEnglish.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "admin, teacher")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([FromForm] int courseId, [FromForm] string title)
         {
@@ -116,6 +122,7 @@ namespace LearnEnglish.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize(Roles = "admin, teacher")]
         public async Task<IActionResult> AddBlock(int id)
         {
             var blocks = await _context.Blocks.ToListAsync();
@@ -130,6 +137,7 @@ namespace LearnEnglish.Controllers
                 return NotFound();
             }
 
+            ViewData["CourseId"] = article.CourseId;
             ViewData["ArticleId"] = article.Id;
             ViewData["ArticleTitle"] = article.Title;
             ViewData["ArticleAuthor"] = article.Author;
@@ -140,6 +148,7 @@ namespace LearnEnglish.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "admin, teacher")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddBlock(List<Block> blocks)
         {
@@ -154,7 +163,7 @@ namespace LearnEnglish.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-
+        [Authorize(Roles = "admin, teacher")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -167,45 +176,33 @@ namespace LearnEnglish.Controllers
             {
                 return NotFound();
             }
+
+            var users = await _userManager.Users.ToListAsync();
+            var usersSelectList = new SelectList(users, "Id", "UserName");
+
+            ViewData["Users"] = usersSelectList;
             ViewData["AuthorId"] = new SelectList(_context.Set<IdentityUser>(), "Id", "Id", article.AuthorId);
-            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "Description", article.CourseId);
+            ViewData["CourseId"] = article.CourseId;
+            ViewData["ArticleId"] = article.Id;
             return View(article);
         }
 
         [HttpPost]
+        [Authorize(Roles = "admin, teacher")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CourseId,AuthorId,Title,CreatedDate")] Article article)
+        public async Task<IActionResult> Edit([FromForm] int Id, [FromForm] string authorId, [FromForm] string title)
         {
-            if (id != article.Id)
-            {
-                return NotFound();
-            }
+            var updateArticle = await _context.Articles.FindAsync(Id);
+            updateArticle.AuthorId = authorId;
+            updateArticle.Title = title;
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(article);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ArticleExists(article.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["AuthorId"] = new SelectList(_context.Set<IdentityUser>(), "Id", "Id", article.AuthorId);
-            ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "Description", article.CourseId);
-            return View(article);
+            _context.Update(updateArticle);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
         }
 
+        [Authorize(Roles = "admin, teacher")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -222,10 +219,14 @@ namespace LearnEnglish.Controllers
                 return NotFound();
             }
 
+            var courseId = article.CourseId;
+            ViewData["CourseId"] = courseId;
+
             return View(article);
         }
 
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "admin, teacher")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {

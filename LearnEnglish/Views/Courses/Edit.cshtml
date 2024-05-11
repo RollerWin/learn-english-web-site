@@ -8,11 +8,17 @@
     <div class="container">
         <h2>Редактирование курса</h2>
         
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Home" asp-action="Index">Главная</a></li>
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Courses" asp-action="ShowCourses">Курсы</a></li>
+            <li class="breadcrumb-item active">Редактирование курса</li>
+        </ol>
+
         <div class="row">
             <div class="col-md-6">
                 <form asp-action="Edit">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="Id" value="@ViewData["CourseId"]"/>
                     <div class="form-group">
                         <label asp-for="Title" class="control-label"></label>
                         <input asp-for="Title" class="form-control" />
@@ -25,12 +31,17 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="UserId" class="control-label"></label>
-                        <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                        <select asp-for="UserId" class="form-control">
+                            @foreach (var user in (SelectList)ViewData["Users"])
+                            {
+                                <option value="@user.Value">@user.Text</option>
+                            }
+                        </select>
                         <span asp-validation-for="UserId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="ImgPath" class="control-label"></label>
-                        <input asp-for="ImgPath" class="form-control" />
+                        <input type="file" asp-for="ImgPath" class="form-control" />
                         <span asp-validation-for="ImgPath" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -46,3 +57,4 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+

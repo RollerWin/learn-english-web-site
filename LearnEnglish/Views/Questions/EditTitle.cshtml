@@ -1,0 +1,44 @@
+﻿@model LearnEnglish.Models.Question
+
+@{
+    ViewData["Title"] = "EditTitle";
+}
+
+<section class="edit-element">
+    <div class="container">
+        <h2>Редактирование вопроса</h2>
+
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Home" asp-action="Index">Главная</a></li>
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Quizs" asp-action="Index">Тесты</a></li>
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Quizs" asp-action="EditQuiz" asp-route-id="@Model.QuizId">Редактирование теста</a></li>
+            <li class="breadcrumb-item active">Редактирование вопроса</li>
+        </ol>
+
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="EditTitle">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" value="@Model.Id"/>
+                    <div class="form-group">
+                        <label asp-for="Text" class="control-label"></label>
+                        <input asp-for="Text" class="form-control" />
+                        <span asp-validation-for="Text" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                        <a class="back-to-list" asp-controller="Quizs" asp-action="EditQuiz" asp-route-id="@Model.QuizId">Вернуться к списку</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

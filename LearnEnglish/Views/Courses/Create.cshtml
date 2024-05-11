@@ -8,6 +8,12 @@
     <div class="container">
         <h2>Создание курса</h2>
 
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Home" asp-action="Index">Главная</a></li>
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Courses" asp-action="ShowCourses">Курсы</a></li>
+           <li class="breadcrumb-item active">Создание курса</li>
+        </ol>
+
         <div class="row">
             <div class="col-md-6">
                 <form asp-action="Create">

@@ -9,9 +9,11 @@ using LearnEnglish.Data;
 using LearnEnglish.Models;
 using Microsoft.AspNetCore.Identity;
 using static System.Reflection.Metadata.BlobBuilder;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LearnEnglish.Controllers
 {
+    [Authorize]
     public class QuizsController : Controller
     {
         private readonly EnglishDbContext _context;
@@ -93,9 +95,6 @@ namespace LearnEnglish.Controllers
                 .OrderBy(ca => ca.Question.Order)
                 .ToList();
 
-            //var newAttempt = await _context.UserAnswers.MaxAsync(na => na.Attempt);
-            //newAttempt++;
-
             var userId = _userManager.GetUserId(this.User);
 
             int newAttempt = 1;
@@ -122,7 +121,7 @@ namespace LearnEnglish.Controllers
 
             for (int i = 0; i < numberOfQuestions; i++)
             {
-                if (userAnswers[i] == filteredCorrectAnswers[i].Text)
+                if (userAnswers[i].ToLower() == filteredCorrectAnswers[i].Text.ToLower())
                 {
                     numberOfCorrectUserAnswers++;
                 }
@@ -167,6 +166,7 @@ namespace LearnEnglish.Controllers
             return View(finalResult);
         }
 
+        [Authorize(Roles = "admin, teacher")]
         public async Task<IActionResult> Create()
         {
             var articles = await _context.Articles.ToListAsync();
@@ -193,6 +193,7 @@ namespace LearnEnglish.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize(Roles = "admin, teacher")]
         public async Task<IActionResult> EditQuiz(int id)
         {
             
@@ -218,6 +219,7 @@ namespace LearnEnglish.Controllers
             return View();
         }
 
+        [Authorize(Roles = "admin, teacher")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -236,37 +238,18 @@ namespace LearnEnglish.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ArticleId,Title")] Quiz quiz)
+        public async Task<IActionResult> Edit([FromForm] int Id, [FromForm] string title)
         {
-            if (id != quiz.Id)
-            {
-                return NotFound();
-            }
+            var updateQuiz = await _context.Quizzes.FindAsync(Id);
+            updateQuiz.Title = title;
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(quiz);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!QuizExists(quiz.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["ArticleId"] = new SelectList(_context.Articles, "Id", "Id", quiz.ArticleId);
-            return View(quiz);
+            _context.Update(updateQuiz);
+            await _context.SaveChangesAsync();
+            
+            return RedirectToAction(nameof(Index));
         }
 
+        [Authorize(Roles = "admin, teacher")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)

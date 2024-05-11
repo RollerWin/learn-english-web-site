@@ -7,6 +7,14 @@
 <section class="create-element">
     <div class="container">
         <h2>Создание статьи</h2>
+
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Home" asp-action="Index">Главная</a></li>
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Courses" asp-action="ShowCourses">Курсы</a></li>
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Articles" asp-action="ShowArticles" asp-route-id="@ViewData["CourseId"]">Статьи по курсу</a></li>
+            <li class="breadcrumb-item active">Создание статьи</li>
+        </ol>
+
         <div class="row">
             <div class="col-md-6">
                 <form asp-action="Create">
@@ -41,10 +49,6 @@
         </div>
     </div>
 </section>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

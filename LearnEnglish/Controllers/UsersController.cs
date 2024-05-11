@@ -1,4 +1,5 @@
 ﻿using LearnEnglish.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -6,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LearnEnglish.Controllers
 {
+    [Authorize]
     public class UsersController : Controller
     {
         private readonly EnglishDbContext _context;

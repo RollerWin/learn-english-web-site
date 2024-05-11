@@ -10,6 +10,13 @@
     <div class="container">
         <h2>Редактирование блоков для @ViewData["ArticleTitle"]</h2>
 
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Home" asp-action="Index">Главная</a></li>
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Courses" asp-action="ShowCourses">Курсы</a></li>
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Articles" asp-action="ShowArticles" asp-route-id="@ViewData["CourseId"]">Статьи по курсу</a></li>
+            <li class="breadcrumb-item active">Редактирование</li>
+        </ol>
+
         <a class="add-button-span-text" asp-controller="Blocks" asp-action="Create" asp-route-id="@article.Id">
             <span class="d-flex align-items-center add-button-span">
                 <i class="fas fa-plus-circle add-article-button mr-2"></i>

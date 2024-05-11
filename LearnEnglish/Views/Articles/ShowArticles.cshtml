@@ -11,6 +11,17 @@
 <section class="articles">
     <div class="container">
         <h2>Темы по курсу: @ViewData["CourseTitle"]</h2>
+
+        @if (SignInManager.Context.User.IsInRole("admin") || SignInManager.Context.User.IsInRole("teacher"))
+        {
+            <a class="add-button-span-text" asp-controller="Articles" asp-action="Create" asp-route-id="@ViewBag.SelectedCourseId">
+                <span class="d-flex align-items-center add-button-span">
+                    <i class="fas fa-plus-circle add-article-button mr-2"></i>
+                    <span>Создать статью</span>
+                </span>
+            </a>
+        }
+
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Home" asp-action="Index">Главная</a></li>
             <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Courses" asp-action="ShowCourses">Курсы</a></li>

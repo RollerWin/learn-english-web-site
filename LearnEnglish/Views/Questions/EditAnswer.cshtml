@@ -1,0 +1,101 @@
+﻿@model List<LearnEnglish.Models.Answer>
+
+@{
+    ViewData["Title"] = "EditAnswer";
+    var question = (Question)ViewData["Question"];
+
+    int numberOfAnswersInTestType = 4;
+    int numberOfAnswersInWrittenType = 1;
+
+    int numberOfAnswers = 0;
+    bool isChecked = false;
+    string hiddenStyle = "";
+
+    if (question.Type == QuestionType.SingleChoice || question.Type == QuestionType.MultipleChoice)
+    {
+        numberOfAnswers = numberOfAnswersInTestType;
+    }
+    else if (question.Type == QuestionType.Written)
+    {
+        numberOfAnswers = numberOfAnswersInWrittenType;
+        isChecked = true;
+        hiddenStyle = "display: none;";
+    }
+}
+
+<section class="edit-element">
+    <div class="container">
+        <h2>@question.Text</h2>
+        <h2>Добавление ответов</h2>
+
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Home" asp-action="Index">Главная</a></li>
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Quizs" asp-action="Index">Тесты</a></li>
+            <li class="breadcrumb-item"><a class="breadcrumb-link" asp-controller="Quizs" asp-action="EditQuiz" asp-route-id="@ViewData["QuizId"]">Редактирование теста</a></li>
+            <li class="breadcrumb-item active">Редактирование ответов</li>
+        </ol>
+
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="EditAnswer" method="post">
+                    @for (var i = 0; i < Model.Count; i++)
+                    {
+                        <input type="hidden" asp-for="@Model[i].Id" />
+                        <input type="hidden" asp-for="@Model[i].QuestionId" />
+                        <div class="form-group">
+                            <label asp-for="@Model[i].Text" class="control-label"></label>
+                            <input asp-for="@Model[i].Text" class="form-control" />
+                            <span asp-validation-for="@Model[i].Text" class="text-danger"></span>
+                        </div>
+                        @if (question.Type != QuestionType.Written)
+                        {
+                            <div class="form-check">
+                                <input type="checkbox" asp-for="@Model[i].IsCorrect" class="form-check-input" value="true" />
+                                <label class="form-check-label" asp-for="@Model[i].IsCorrect">Верный ответ</label>
+                            </div>
+                        }
+                        else
+                        {
+                            <input type="hidden" asp-for="@Model[i].IsCorrect" value="true" />
+                        }
+                    }
+
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                        <a class="back-to-list" asp-controller="Quizs" asp-action="EditQuiz" asp-route-id="@ViewData["QuizId"]">Вернуться к списку</a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            var maxChecked = 1;
+
+            checkboxes.forEach(function (checkbox) {
+                checkbox.addEventListener('change', function () {
+                    var checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
+
+                    if (checkedCount >= maxChecked) {
+                        checkboxes.forEach(function (cb) {
+                            if (!cb.checked) {
+                                cb.disabled = true;
+                            }
+                        });
+                    } else {
+                        checkboxes.forEach(function (cb) {
+                            cb.disabled = false;
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}
